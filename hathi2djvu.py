@@ -86,7 +86,7 @@ else:
                 print("starting conversion")
                 djvupage = f"{filenamevariable}.djvu"
                 print(djvupage)
-                name = f"Images_from_{full_text_id}/{filename}"
+                name = f"{directory}/{filename}"
                 truncated = name[:-4]
                 last = f"{truncated}.pbm"
                 subprocess.run(["convert", name, last])
