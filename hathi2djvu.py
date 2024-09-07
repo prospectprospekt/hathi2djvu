@@ -80,7 +80,7 @@ else:
                 if filename.endswith(".jpg"):
                     print("success")
                 else:
-                print("your file is a png, and I haven't figured out to convert this type yet. Moving on to the next.")
+                    print("your file is a png, and I haven't figured out to convert this type yet. Moving on to the next.")
     else: 
         print("we respect your decision. Have a great rest of your day")
 
