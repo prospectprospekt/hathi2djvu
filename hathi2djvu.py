@@ -74,7 +74,7 @@ else:
     # begin the djvu conversion process
     start_conversion = input("Begin DjVu conversion? [yN]")
     if start_conversion == "y" or start_conversion == "Y":
-        for root, dirs, files in os.walk(folder_path, topdown=False);
+        for root, dirs, files in os.walk(folder_path, topdown=False):
             for filename in files:
                 print(filename)
                 if filename.endswith(".jpg"):
