@@ -76,16 +76,16 @@ else:
     # begin the djvu conversion process
     start_conversion = input("Begin DjVu conversion? [yN]")
     if start_conversion == "y" or start_conversion == "Y":
-        # subprocess.run(["mkdir", f"Converted_DjVu_files_of_{full_text_id}"])
+	# subprocess.run(["mkdir", f"Converted_DjVu_files_of_{full_text_id}"])
         for root, dirs, files in os.walk(directory):
-            for filename in files:
-                subprocess.run(["cd", directory])
-		cbm = f"{filename}.cbm"
-		djvu = f"{filename}.djvu"
-                subprocess.run(["convert", filename, cbm])
-		subprocess.run(["cjp2", "-dpi 300", cbm, djvu])
-		subprocess.run(["cd", ".."])
-                print("djvu conversion for this page successful!")
+	for filename in files:
+	    subprocess.run(["cd", directory])
+	    cbm = f"{filename}.cbm"
+	    djvu = f"{filename}.djvu"
+            subprocess.run(["convert", filename, cbm])
+	    subprocess.run(["cjp2", "-dpi 300", cbm, djvu])
+	    subprocess.run(["cd", ".."])
+            print("djvu conversion for this page successful!")
         djvuname = f"{full_text_id}.djvu"
         subprocess.run(["djvm", "-c", djvuname, "*.djvu"])
     else: 
