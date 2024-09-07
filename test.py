@@ -83,8 +83,8 @@ else:
                 if filename.endswith(".jpg"):
                     print("starting conversion")
                     djvupage = f"{filenamevariable}.djvu"
-		                print(filenamevariable)
-		                print(djvupage)
+		    print(filenamevariable)
+		    print(djvupage)
 
                     subprocess.run(["c44", "-dpi 300", filenamevariable, djvupage])
                     print("djvu conversion for this page successful!")
