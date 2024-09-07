@@ -81,9 +81,11 @@ else:
             for filename in files:
                 print(filename)
                 filenamevariable = filename[:-4]
+                print(filenamevariable)
                 if filename.endswith(".jpg"):
                     print("starting conversion")
                     djvupage = f"Converted_DjVu_files_of_{full_text_id}/{filenamevariable}.djvu"
+                    print(djvupage)
                     subprocess.run(["c44", "-dpi 300", filenamevariable, djvupage])
                     print("djvu conversion for this page successful!")
                 else:
