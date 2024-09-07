@@ -89,7 +89,7 @@ else:
                 name = f"Images_from_{full_text_id}/{filename}"
                 truncated = name[:-4]
                 last = f"{truncated}.pbm"
-                subprocess.run(["convert", name, last)
+                subprocess.run(["convert", name, last])
                 subprocess.run(["cjp2", "-dpi 300", last, djvupage])
                 print("djvu conversion for this page successful!")
         djvuname = f"{full_text_id}.djvu"
