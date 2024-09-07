@@ -37,7 +37,7 @@ def get_hathitrust_images(full_text_id, folder_path=None):
     print(f"Attempting to download the {number_of_pages} HathiTrust images from {full_text_id}...")
     
     if not folder_path:
-        folder_path = "HathiTrust_images/{full_text_id}"
+        folder_path = "Images_from_{full_text_id}"
     
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
@@ -63,15 +63,24 @@ def get_hathitrust_images(full_text_id, folder_path=None):
     return folder_path
     # return img_tags
 # --------------------------------------------------------------------------------------------------------------------
-# all of the above was copied from https://github.com/PseudoSkull/QuickTranscribe
+# all of the above was copied from https://github.com/PseudoSkull/QuickTranscribe, with only slight modifications
 # --------------------------------------------------------------------------------------------------------------------
 
 full_text_id = input("Enter HathiTrust ID: ")
-get_hathitrust_images(full_text_id)
-# begin the djvu conversion process
-start_conversion = input("Begin DjVu conversion? [yN]")
-if start_conversion == "y" || start_conversion == "Y":
-    for file in 
-else: 
-    print("we respect your decision. Have a great rest of your day")
+options = input("Are the images already downloaded? [yN]")
+if options == "n" || options == "N":
+    get_hathitrust_images(full_text_id)
+else:
+    # begin the djvu conversion process
+    start_conversion = input("Begin DjVu conversion? [yN]")
+    if start_conversion == "y" || start_conversion == "Y":
+        for root, dirs, files in os.walk(folder_path, topdown=False);
+            for filename in files:
+                print(filename)
+                if filename.endswith(".jpg"):
+                    print("success")
+                else:
+                print("your file is a png, and I haven't figured out to convert this type yet. Moving on to the next.")
+    else: 
+        print("we respect your decision. Have a great rest of your day")
 
