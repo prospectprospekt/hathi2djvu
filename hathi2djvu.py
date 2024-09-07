@@ -80,11 +80,11 @@ else:
         for root, dirs, files in os.walk(directory):
             for filename in files:
                 subprocess.run(["cd", directory])
-		        cbm = f"{filename}.cbm"
-		        djvu = f"{filename}.djvu"
+		cbm = f"{filename}.cbm"
+		djvu = f"{filename}.djvu"
                 subprocess.run(["convert", filename, cbm])
-		        subprocess.run(["cjp2", "-dpi 300", cbm, djvu])
-		        subprocess.run(["cd", ".."])
+		subprocess.run(["cjp2", "-dpi 300", cbm, djvu])
+		subprocess.run(["cd", ".."])
                 print("djvu conversion for this page successful!")
         djvuname = f"{full_text_id}.djvu"
         subprocess.run(["djvm", "-c", djvuname, "*.djvu"])
