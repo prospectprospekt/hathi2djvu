@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import os
+# import re
 def get_number_of_pages(full_text_id):
     print("Retrieving number of pages in scan...")
     url = f"https://babel.hathitrust.org/cgi/pt?id={full_text_id}"
@@ -36,7 +37,7 @@ def get_hathitrust_images(full_text_id, folder_path=None):
     print(f"Attempting to download the {number_of_pages} HathiTrust images from {full_text_id}...")
     
     if not folder_path:
-        folder_path = "projectfiles/hathi_images"
+        folder_path = "HathiTrust_images/{full_text_id}"
     
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
@@ -45,7 +46,6 @@ def get_hathitrust_images(full_text_id, folder_path=None):
     for page_num in range(1, number_of_pages+1):
         print(f"Attempting to download {page_num} of {number_of_pages}...")
         page_url = f"https://babel.hathitrust.org/cgi/imgsrv/image?id={full_text_id};seq={page_num};size=full"
- # I think that the TIFF files are converted from the original files; see 
         while 1: # make SURE the image downloads.
             response = requests.get(page_url)
             if response.status_code == 200:
@@ -62,7 +62,16 @@ def get_hathitrust_images(full_text_id, folder_path=None):
 
     return folder_path
     # return img_tags
-
+# --------------------------------------------------------------------------------------------------------------------
+# all of the above was copied from https://github.com/PseudoSkull/QuickTranscribe
+# --------------------------------------------------------------------------------------------------------------------
 
 full_text_id = input("Enter HathiTrust ID: ")
 get_hathitrust_images(full_text_id)
+# begin the djvu conversion process
+start_conversion = input("Begin DjVu conversion? [yN]")
+if start_conversion == "y" || start_conversion == "Y":
+    for file in 
+else: 
+    print("we respect your decision. Have a great rest of your day")
+
