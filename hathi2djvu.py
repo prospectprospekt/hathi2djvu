@@ -72,33 +72,19 @@ directory = f"Images_from_{full_text_id}"
 options = input("Are the images already downloaded? [yN]")
 if options == "n" or options == "N":
     get_hathitrust_images(full_text_id)
-    start_conversion = input("Begin DjVu conversion? [yN]")
-    if start_conversion == "y" or start_conversion == "Y":
-        for root, dirs, files in os.walk(directory, topdown=True):
-            for filename in files:
-                print(filename)
-                if filename.endswith(".jpg"):
-                    print("starting conversion")
-                    djvupage = f"{filename}.djvu"
-                    subprocess.run(["c44", "-dpi 300", filename, djvupage])
-                    print("djvu conversion for this page successful!")
-                else:
-                    print("your file is a png, and I haven't figured out to convert this type yet. Moving on to the next.")
-        djvuname = f"{full_text_id}.djvu"
-        subprocess.run(["djvm", "-c", djvuname, "*.djvu"])
-    else: 
-        print("we respect your decision. Have a great rest of your day")
 else:
     # begin the djvu conversion process
     start_conversion = input("Begin DjVu conversion? [yN]")
     if start_conversion == "y" or start_conversion == "Y":
-        for root, dirs, files in os.walk(directory, topdown=True):
+        subprocess.run(["mkdir", f"Converted_DjVu_files_of_{full_text_id}"])
+        for root, dirs, files in os.walk(directory):
             for filename in files:
                 print(filename)
+                filenamevariable = filename[:-4]
                 if filename.endswith(".jpg"):
                     print("starting conversion")
-                    djvupage = f"{filename}.djvu"
-                    subprocess.run(["c44", "-dpi 300", filename, djvupage])
+                    djvupage = f"Converted_DjVu_files_of_{full_text_id}/{filenamevariable}.djvu"
+                    subprocess.run(["c44", "-dpi 300", filenamevariable, djvupage])
                     print("djvu conversion for this page successful!")
                 else:
                     print("your file is a png, and I haven't figured out to convert this type yet. Moving on to the next.")
