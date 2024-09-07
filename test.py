@@ -76,21 +76,18 @@ else:
     # begin the djvu conversion process
     start_conversion = input("Begin DjVu conversion? [yN]")
     if start_conversion == "y" or start_conversion == "Y":
+        # subprocess.run(["mkdir", f"Converted_DjVu_files_of_{full_text_id}"])
         for root, dirs, files in os.walk(directory):
             for filename in files:
-                print(filename)
-                filenamevariable = filename[:-4]
-                if filename.endswith(".jpg"):
-                	print("starting conversion")
-                	djvupage = f"{filenamevariable}.djvu"
-			print(filenamevariable)
-			print(djvupage)
-
-                	subprocess.run(["c44", "-dpi 300", filenamevariable, djvupage])
-                	print("djvu conversion for this page successful!")
-                else:
-                    print("your file is a png, and I haven't figured out to convert this type yet. Moving on to the next.")
+            	subprocess.run(["cd", directory])
+		cbm = f"{filename}.cbm"
+		djvu = f"{filename}.djvu"
+                subprocess.run(["convert", filename, cbm])
+		subprocess.run(["cjp2", "-dpi 300", cbm, djvu])
+		subprocess.run(["cd", ".."])
+                print("djvu conversion for this page successful!")
         djvuname = f"{full_text_id}.djvu"
         subprocess.run(["djvm", "-c", djvuname, "*.djvu"])
     else: 
         print("we respect your decision. Have a great rest of your day")
+
