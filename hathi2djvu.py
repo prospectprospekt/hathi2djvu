@@ -37,7 +37,7 @@ def get_hathitrust_images(full_text_id, folder_path=None):
     print(f"Attempting to download the {number_of_pages} HathiTrust images from {full_text_id}...")
     
     if not folder_path:
-        folder_path = "Images_from_{full_text_id}"
+        folder_path = f"Images_from_{full_text_id}"
     
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
