@@ -79,14 +79,14 @@ else:
         # subprocess.run(["mkdir", f"Converted_DjVu_files_of_{full_text_id}"])
         for root, dirs, files in os.walk(directory):
             for filename in files:
-                print(filename)
+                print(filename) 
                 filenamevariable = filename[:-4]
                 print(filenamevariable)
                 if filename.endswith(".jpg"):
                     print("starting conversion")
                     djvupage = f"{filenamevariable}.djvu"
                     print(djvupage)
-                    subprocess.run(["c44", "-dpi 300", filename, djvupage])
+                    subprocess.run(["c44", "-dpi 300", f"Images_from_{full_text_id}/{filename}", djvupage])
                     print("djvu conversion for this page successful!")
                 else:
                     print("your file is a png, and I haven't figured out to convert this type yet. Moving on to the next.")
