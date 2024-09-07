@@ -86,8 +86,8 @@ else:
 		subprocess.run(["cjp2", "-dpi 300", cbm, djvu])
 		subprocess.run(["cd", ".."])
                 print("djvu conversion for this page successful!")
-        djvuname = f"{full_text_id}.djvu"
-        subprocess.run(["djvm", "-c", djvuname, "*.djvu"])
-    else: 
-        print("we respect your decision. Have a great rest of your day")
+#djvuname = f"{full_text_id}.djvu"
+ #       subprocess.run(["djvm", "-c", djvuname, "*.djvu"])
+ #   else: 
+#        print("we respect your decision. Have a great rest of your day")
 
