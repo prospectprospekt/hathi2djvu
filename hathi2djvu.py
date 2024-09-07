@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import subprocess
 import os
 # import re
 def get_number_of_pages(full_text_id):
