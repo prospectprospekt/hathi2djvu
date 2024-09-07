@@ -74,7 +74,7 @@ if options == "n" or options == "N":
     get_hathitrust_images(full_text_id)
     start_conversion = input("Begin DjVu conversion? [yN]")
     if start_conversion == "y" or start_conversion == "Y":
-        for root, dirs, files in os.walk(directory, topdown=False):
+        for root, dirs, files in os.walk(directory, topdown=True):
             for filename in files:
                 print(filename)
                 if filename.endswith(".jpg"):
@@ -84,15 +84,15 @@ if options == "n" or options == "N":
                     print("djvu conversion for this page successful!")
                 else:
                     print("your file is a png, and I haven't figured out to convert this type yet. Moving on to the next.")
-                djvuname = f"{full_text_id}.djvu"
-                subprocess.run(["djvm", "-c", djvuname, "*.djvu"])
+        djvuname = f"{full_text_id}.djvu"
+        subprocess.run(["djvm", "-c", djvuname, "*.djvu"])
     else: 
         print("we respect your decision. Have a great rest of your day")
 else:
     # begin the djvu conversion process
     start_conversion = input("Begin DjVu conversion? [yN]")
     if start_conversion == "y" or start_conversion == "Y":
-        for root, dirs, files in os.walk(directory, topdown=False):
+        for root, dirs, files in os.walk(directory, topdown=True):
             for filename in files:
                 print(filename)
                 if filename.endswith(".jpg"):
@@ -102,8 +102,8 @@ else:
                     print("djvu conversion for this page successful!")
                 else:
                     print("your file is a png, and I haven't figured out to convert this type yet. Moving on to the next.")
-                djvuname = f"{full_text_id}.djvu"
-                subprocess.run(["djvm", "-c", djvuname, "*.djvu"])
+        djvuname = f"{full_text_id}.djvu"
+        subprocess.run(["djvm", "-c", djvuname, "*.djvu"])
     else: 
         print("we respect your decision. Have a great rest of your day")
 
