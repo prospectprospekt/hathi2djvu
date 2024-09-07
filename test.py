@@ -81,13 +81,13 @@ else:
                 print(filename)
                 filenamevariable = filename[:-4]
                 if filename.endswith(".jpg"):
-                    print("starting conversion")
-                    djvupage = f"{filenamevariable}.djvu"
-		    print(filenamevariable)
-		    print(djvupage)
+                	print("starting conversion")
+                	djvupage = f"{filenamevariable}.djvu"
+			print(filenamevariable)
+			print(djvupage)
 
-                    subprocess.run(["c44", "-dpi 300", filenamevariable, djvupage])
-                    print("djvu conversion for this page successful!")
+                	subprocess.run(["c44", "-dpi 300", filenamevariable, djvupage])
+                	print("djvu conversion for this page successful!")
                 else:
                     print("your file is a png, and I haven't figured out to convert this type yet. Moving on to the next.")
         djvuname = f"{full_text_id}.djvu"
