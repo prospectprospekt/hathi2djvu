@@ -68,12 +68,12 @@ def get_hathitrust_images(full_text_id, folder_path=None):
 
 full_text_id = input("Enter HathiTrust ID: ")
 options = input("Are the images already downloaded? [yN]")
-if options == "n" || options == "N":
+if options == "n" or options == "N":
     get_hathitrust_images(full_text_id)
 else:
     # begin the djvu conversion process
     start_conversion = input("Begin DjVu conversion? [yN]")
-    if start_conversion == "y" || start_conversion == "Y":
+    if start_conversion == "y" or start_conversion == "Y":
         for root, dirs, files in os.walk(folder_path, topdown=False);
             for filename in files:
                 print(filename)
