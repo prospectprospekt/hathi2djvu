@@ -17,3 +17,4 @@ https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=14;size=
 https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=14;size=full;format=image%2Fpnm
 https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=1;size=full;format=image%2Fppm
 https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=1;size=full;format=image%2Fpbm
+https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=14;size=full;format=image%2Fpbm
