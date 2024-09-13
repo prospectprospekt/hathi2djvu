@@ -21,3 +21,5 @@ https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=14;size=
 
 https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=14;size=full;format=image/jp2
 https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=14;size=full;format=image/tiff
+
+https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=14;size=full;format=image/ - will just return pgm?????
