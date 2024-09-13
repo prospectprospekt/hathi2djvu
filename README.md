@@ -7,3 +7,11 @@ and djvulibre lmao
 
 ;format=image%2Ftiff
 ;format=image%2Ftiff
+
+Trying to figure out how to get the original images from hathitrust. https://babel.hathitrust.org/cgi/imgsrv/image?id={full_text_id};seq={page_num};size=full produces png images when the text is bitonal and jpeg images when the text is either greyscale or colored, determined by metadata. https://babel.hathitrust.org/cgi/imgsrv/image?id={full_text_id};seq={page_num};size=full;format=image%2Ftiff produces bitonal tiff files converted from pnm files and also colored files, depending on type of page. You can also download jp2 and ppm files, which is interesting. osu.32435055416200
+
+For example: 
+https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=1;size=full -- jpeg file
+https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=1;size=full;format=image%2Ftiff -- original scan? 
+https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=1;size=full;format=image%2Fjp2
+https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=1;size=full;format=image%2Fpnm
