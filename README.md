@@ -27,3 +27,5 @@ https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=1;size=f
 https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=20;size=full;format=image/
 
 see also https://github.com/hathitrust/feed_no_history
+
+https://github.com/hathitrust/imgsrv/blob/dee475f42ea20e8718c8587bb2dcf763ccf3beed/bin/image
