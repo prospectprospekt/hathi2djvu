@@ -14,6 +14,6 @@ For example:
 https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=1;size=full -- jpeg file
 https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=1;size=full;format=image%2Ftiff -- original scan? 
 https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=14;size=full;format=image%2Fjp2
-https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=1;size=full;format=image%2Fpnm
+https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=14;size=full;format=image%2Fpnm
 https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=1;size=full;format=image%2Fppm
 https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=1;size=full;format=image%2Fpbm
