@@ -24,7 +24,7 @@ https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=14;size=
 
 https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=14;size=full;format=image/ - will just return pgm?????
 https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=1;size=full;format=image/  - ppm????
-https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=20;size=full;format=image/
+https://babel.hathitrust.org/cgi/imgsrv/image?id=osu.32435055416200;seq=20;size=full;attachment=1
 
 see also https://github.com/hathitrust/feed_no_history
 
