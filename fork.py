@@ -16,6 +16,7 @@ def get_page_types(full_text_id, page_num):
             pagetypes[page - 1] = "c44"
         else:
             pagetypes[page - 1] = "cjb2"
+        page += 1
     return None
 # front end
 while true:
