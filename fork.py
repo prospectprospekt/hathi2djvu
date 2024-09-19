@@ -9,7 +9,7 @@ pagetypes = []
 def get_page_types(full_text_id, page_num):
     # page iterator, remember to subtract 1 for array
     page = 1
-    while page <= pagenum:
+    while page <= page_num:
         response = requests.get(f"https://babel.hathitrust.org/cgi/imgsrv/image?id={full_text_id};seq={page_num};size=full")
         soup = BeautifulSoup(response, "html.parser")
         if soup.find("image/jpeg"):
@@ -19,7 +19,7 @@ def get_page_types(full_text_id, page_num):
         page += 1
     return None
 # front end
-while 1 == 1:
+while True:
     pagetypes = []
     one = print("enter id: ")
     two = print("enter number of pages ")
