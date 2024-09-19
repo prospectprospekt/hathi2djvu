@@ -19,7 +19,7 @@ def get_page_types(full_text_id, page_num):
         page += 1
     return None
 # front end
-while true:
+while True:
     pagetypes = []
     one = print("enter id: ")
     two = print("enter number of pages ")
