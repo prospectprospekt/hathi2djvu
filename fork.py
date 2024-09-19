@@ -23,7 +23,7 @@ while 1 == 1:
     pagetypes = []
     one = print("enter id: ")
     two = print("enter number of pages ")
-    get_page_types(full_text_id, page_num)
+    get_page_types(one, two)
     print(pagetypes)
     three = print("end the machine?"[yn])
     if three == "y":
