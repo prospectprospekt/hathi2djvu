@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup
+tfrom bs4 import BeautifulSoup
 import requests
 from contextlib import chdir
 import subprocess
@@ -52,7 +52,7 @@ def get_hathitrust_images(full_text_id, folder_path=None):
             response = requests.get(page_url)
             if response.status_code == 200:
                 # Save the image to the specified path
-                image_path = os.path.join(folder_path, f"{page_num}.jpg")
+                image_path = os.path.join(folder_path, f"{page_num}")
                 with open(image_path, 'wb') as file:
                     file.write(response.content)
                     print(f"Image for page #{page_num} saved successfully!")
