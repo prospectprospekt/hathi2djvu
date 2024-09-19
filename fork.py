@@ -22,7 +22,7 @@ def get_page_types(full_text_id, page_num):
 while True:
     pagetypes = []
     one = input("enter id: ")
-    two = input("enter number of pages ")
+    two = int(input("enter number of pages "))
     get_page_types(one, two)
     print(pagetypes)
     three = print("end the machine?"[yn])
