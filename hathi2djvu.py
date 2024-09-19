@@ -3,7 +3,7 @@ import requests
 from contextlib import chdir
 import subprocess
 import os
-# import re
+import re
 def get_number_of_pages(full_text_id):
     print("Retrieving number of pages in scan...")
     url = f"https://babel.hathitrust.org/cgi/pt?id={full_text_id}"
@@ -47,7 +47,7 @@ def get_hathitrust_images(full_text_id, folder_path=None):
     
     for page_num in range(1, number_of_pages+1):
         print(f"Attempting to download {page_num} of {number_of_pages}...")
-        page_url = f"https://babel.hathitrust.org/cgi/imgsrv/image?id={full_text_id};seq={page_num};size=full"
+        page_url = f"https://babel.hathitrust.org/cgi/imgsrv/image?id={full_text_id};seq={page_num};size=full;format=image/"
         while 1: # make SURE the image downloads.
             response = requests.get(page_url)
             if response.status_code == 200:
