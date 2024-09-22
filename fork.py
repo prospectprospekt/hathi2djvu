@@ -94,7 +94,7 @@ def get_hathitrust_images(full_text_id, folder_path=None):
     return folder_path
     # return img_tags
 # --------------------------------------------------------------------------------------------------------------------
-# all of the above was copied from https://github.com/PseudoSkull/QuickTranscribe, with only slight modifications
+# all of the above was copied from https://github.com/PseudoSkull/QuickTranscribe, with only slight modifications. I need to organize this better and make it handle files already downloaded. 
 # --------------------------------------------------------------------------------------------------------------------
 while True:
     full_text_id = input("Enter HathiTrust ID: ")
