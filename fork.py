@@ -45,8 +45,9 @@ def get_hathitrust_images(full_text_id, folder_path=None):
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
         print(f"Created folder path {folder_path} as it did not exist.")
-    
+    all_djvu_pages = "" # for merging djvu files in the end
     for page_num in range(1, number_of_pages+1):
+        all_djvu_pages += f" {page_num}.djvu" # add page number to djvu for final command
         print(f"Attempting to download {page_num} of {number_of_pages}...")
         page_url_for_determining_bitonality = f"https://babel.hathitrust.org/cgi/imgsrv/image?id={full_text_id};seq={page_num};size=full"
         page_url = f"https://babel.hathitrust.org/cgi/imgsrv/image?id={full_text_id};seq={page_num};size=full;format=image/"
@@ -88,7 +89,7 @@ def get_hathitrust_images(full_text_id, folder_path=None):
     print(f"All images downloaded from Hathi scan {full_text_id}, converted to individual djvu files, and subsequently deleted successfully! Now to make one big djvu file")
     oldpwd = os.getcwd()
     os.chdir(f"{oldpwd}/{folder_path}/")
-    os.system(f"djvm -c {full_text_id}.djvu *.djvu")
+    os.system(f"djvm -c {full_text_id}.djvu{all_djvu_pages}")
     os.chdir(oldpwd)
 
     return None
