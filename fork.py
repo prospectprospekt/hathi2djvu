@@ -70,16 +70,16 @@ def get_hathitrust_images(full_text_id, folder_path=None):
                 if content_type == "image/jpeg":
                     print(f"Color/greyscale detected! {page_num} is for c44")
                     os.chdir(f"{oldpwd}/{folder_path}/")
-                    os.system(f"c44 -dpi 600 {page_num} {page_num}.djvu") # using default dpi settings because that's what ia-upload uses and it's what's recommended
+                    os.system(f"c44 -dpi 600 {page_num} {page_num}.djvu") # using dpi 600 because that's what the hathi files are
                     # os.system(f"djvm -c finished_work.djvu {page_num}.djvu")
-                    # os.remove(f"{page_num}") # delete pnm file to not let it take up storage
+                    os.remove(f"{page_num}") # delete pnm file to not let it take up storage
                     os.chdir(oldpwd)
                 else:
                     print(f"Bitonality detected! {page_num} is for cjb2")
                     os.chdir(f"{oldpwd}/{folder_path}/")
-                    os.system(f"cjb2 -dpi 600 {page_num} {page_num}.djvu") # using dpi 600 for bitonal images because they take up less storage and hathitrust images are 600 dpi
+                    os.system(f"cjb2 -dpi 600 {page_num} {page_num}.djvu") 
                     # os.system(f"djvm -c finished_work.djvu {page_num}.djvu")
-                    # os.remove(f"{page_num}") # delete pnm file to not let it take up storage
+                    os.remove(f"{page_num}") # delete pnm file to not let it take up storage
                     os.chdir(oldpwd)
                 break 
         
