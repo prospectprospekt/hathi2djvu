@@ -71,12 +71,14 @@ def get_hathitrust_images(full_text_id, folder_path=None):
                     print(f"{page_num} is for c44")
                     os.chdir(f"{oldpwd}/{folder_path}/")
                     os.system(f"c44 -dpi 600 {page_num} {page_num}.djvu")
+                    os.system(f"djvm -c finished_work.djvu {page_num}.djvu")
                     os.remove(f"{page_num}")
                     os.chdir(oldpwd)
                 else:
                     print(f"{page_num} is for cjb2")
                     os.chdir(f"{oldpwd}/{folder_path}/")
                     os.system(f"cjb2 -dpi 600 {page_num} {page_num}.djvu")
+                    os.system(f"djvm -c finished_work.djvu {page_num}.djvu")
                     os.remove(f"{page_num}")
                     os.chdir(oldpwd)
                 break 
