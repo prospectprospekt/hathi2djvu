@@ -91,7 +91,7 @@ def get_hathitrust_images(full_text_id, folder_path=None):
     os.system(f"djvm -c {full_text_id}.djvu *.djvu")
     os.chdir(oldpwd)
 
-    return folder_path
+    return None
     # return img_tags
 # --------------------------------------------------------------------------------------------------------------------
 # all of the above was copied from https://github.com/PseudoSkull/QuickTranscribe, with only slight modifications. I need to organize this better and make it handle files already downloaded. 
