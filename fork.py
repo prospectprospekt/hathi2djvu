@@ -11,7 +11,7 @@ def get_page_types(full_text_id, page_num):
     page = 1
     while page <= page_num:
         response = requests.get(f"https://babel.hathitrust.org/cgi/imgsrv/image?id={full_text_id};seq={page_num};size=full")
-        soup = BeautifulSoup(response, "html.parser")
+        soup = BeautifulSoup(response.text, "html.parser")
         if soup.find("image/jpeg"):
             pagetypes[page - 1] = "c44"
         else:
