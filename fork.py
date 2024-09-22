@@ -66,10 +66,19 @@ def get_hathitrust_images(full_text_id, folder_path=None):
             if response.status_code == 200:
                 # Save the image to the specified path
                 content_type = response.headers['content-type']
+                oldpwd = os.getcwd()
                 if content_type == "image/jpeg":
                     print(f"{page_num} is for c44")
+                    os.chdir(f"/folder_path/")
+                    os.system(f"c44 -dpi 600 {page_num} {page_num}.djvu")
+                    os.remove(f"{page_num}")
+                    os.chdir(oldpwd)
                 else:
                     print(f"{page_num} is for cjb2")
+                    os.chdir(f"/folder_path/")
+                    os.system(f"cjb2 -dpi 600 {page_num} {page_num}.djvu")
+                    os.remove(f"{page_num}")
+                    os.chdir(oldpwd)
                 break 
 
             print(f"Failed to determine the bitonality for #{page_num}! Trying again...")
