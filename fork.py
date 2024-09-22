@@ -68,24 +68,28 @@ def get_hathitrust_images(full_text_id, folder_path=None):
                 content_type = response.headers['content-type']
                 oldpwd = os.getcwd()
                 if content_type == "image/jpeg":
-                    print(f"{page_num} is for c44")
+                    print(f"Color/greyscale detected! {page_num} is for c44")
                     os.chdir(f"{oldpwd}/{folder_path}/")
                     os.system(f"c44 -dpi 600 {page_num} {page_num}.djvu")
-                    os.system(f"djvm -c finished_work.djvu {page_num}.djvu")
+                    # os.system(f"djvm -c finished_work.djvu {page_num}.djvu")
                     os.remove(f"{page_num}")
                     os.chdir(oldpwd)
                 else:
-                    print(f"{page_num} is for cjb2")
+                    print(f"Bitonality detected! {page_num} is for cjb2")
                     os.chdir(f"{oldpwd}/{folder_path}/")
                     os.system(f"cjb2 -dpi 600 {page_num} {page_num}.djvu")
-                    os.system(f"djvm -c finished_work.djvu {page_num}.djvu")
+                    # os.system(f"djvm -c finished_work.djvu {page_num}.djvu")
                     os.remove(f"{page_num}")
                     os.chdir(oldpwd)
                 break 
-
+        
             print(f"Failed to determine the bitonality for #{page_num}! Trying again...")
 
-    print(f"All images downloaded from Hathi scan {full_text_id} successfully!")
+    print(f"All images downloaded from Hathi scan {full_text_id}, converted to individual djvu files, and subsequently deleted successfully! Now to make one big djvu file")
+    oldpwd = os.getcwd()
+    os.chdir(f"{oldpwd}/{folder_path}/")
+    os.system(f"djvm -c {full_text_id}.djvu *.djvu")
+    os.chdir(oldpwd)
 
     return folder_path
     # return img_tags
