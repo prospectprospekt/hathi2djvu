@@ -3,7 +3,7 @@ import requests
 from contextlib import chdir
 import subprocess
 import os
-import re
+# import re
 
 def get_number_of_pages(full_text_id):
     print("Retrieving number of pages in scan...")
@@ -61,7 +61,7 @@ def get_hathitrust_images(full_text_id, folder_path=None):
                     break
 
             print(f"Failed to download the image file for page #{page_num}! Trying again...")
-        while 1: # make SURE it finds the bitonality
+        while 1: # make SURE it finds the bitonality. This checks if image withour the format parameter is a jpeg or png. If image is jpeg, it means that it is either colored or greyscale; if it is png then it is bitonal. 
             response = requests.get(page_url_for_determining_bitonality)
             if response.status_code == 200:
                 # Save the image to the specified path
@@ -70,16 +70,16 @@ def get_hathitrust_images(full_text_id, folder_path=None):
                 if content_type == "image/jpeg":
                     print(f"Color/greyscale detected! {page_num} is for c44")
                     os.chdir(f"{oldpwd}/{folder_path}/")
-                    os.system(f"c44 -dpi 600 {page_num} {page_num}.djvu")
+                    os.system(f"c44 {page_num} {page_num}.djvu") # using default dpi settings because that's what ia-upload uses and it's what's recommended
                     # os.system(f"djvm -c finished_work.djvu {page_num}.djvu")
-                    os.remove(f"{page_num}")
+                    os.remove(f"{page_num}") # delete pnm file to not let it take up storage
                     os.chdir(oldpwd)
                 else:
                     print(f"Bitonality detected! {page_num} is for cjb2")
                     os.chdir(f"{oldpwd}/{folder_path}/")
-                    os.system(f"cjb2 -dpi 600 {page_num} {page_num}.djvu")
+                    os.system(f"cjb2 -dpi 600 {page_num} {page_num}.djvu") # using dpi 600 for bitonal images because they take up less storage and hathitrust images are 600 dpi
                     # os.system(f"djvm -c finished_work.djvu {page_num}.djvu")
-                    os.remove(f"{page_num}")
+                    os.remove(f"{page_num}") # delete pnm file to not let it take up storage
                     os.chdir(oldpwd)
                 break 
         
