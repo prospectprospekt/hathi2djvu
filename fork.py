@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
 from contextlib import chdir
-import subprocess
 import os
 # import re
 
