@@ -106,10 +106,11 @@ def get_hathitrust_images(full_text_id, folder_path=None):
 # all of the above was copied from https://github.com/PseudoSkull/QuickTranscribe, with only slight modifications. I need to organize this better and make it handle files already downloaded. 
 # --------------------------------------------------------------------------------------------------------------------
 while True:
-    full_text_id = input("Enter HathiTrust ID: ")
-    directory = f"Images_from_{full_text_id}"
-    options = input("Are the images already downloaded? [yN]")
-    if options == "n" or options == "N":
-        get_hathitrust_images(full_text_id)
+    full_text_id = input("Enter HathiTrust ID or break (say break): ")
+    if full_text_id == "break":
         break
+    directory = f"Images_from_{full_text_id}"
+    print("getting images...")
+    get_hathitrust_images(full_text_id)
+    
     
