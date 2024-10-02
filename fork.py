@@ -70,14 +70,14 @@ def get_hathitrust_images(full_text_id, folder_path=None):
                 if content_type == "image/jpeg":
                     print(f"Color/greyscale detected! {page_num} is for c44")
                     os.chdir(f"{oldpwd}/{folder_path}/")
-                    os.system(f"c44 -dpi 600 {page_num} {page_num}.djvu") # using dpi 600 because that's what the hathi files are
+                    os.system(f"c44 -dpi 100 {page_num} {page_num}.djvu") # using dpi 600 because that's what the hathi files are
                     # os.system(f"djvm -c finished_work.djvu {page_num}.djvu")
                     os.remove(f"{page_num}") # delete pnm file to not let it take up storage
                     os.chdir(oldpwd)
                 else:
                     print(f"Bitonality detected! {page_num} is for cjb2")
                     os.chdir(f"{oldpwd}/{folder_path}/")
-                    os.system(f"cjb2 -dpi 600 {page_num} {page_num}.djvu") 
+                    os.system(f"cjb2 -dpi 100 {page_num} {page_num}.djvu") 
                     # os.system(f"djvm -c finished_work.djvu {page_num}.djvu")
                     os.remove(f"{page_num}") # delete pnm file to not let it take up storage
                     os.chdir(oldpwd)
@@ -86,11 +86,16 @@ def get_hathitrust_images(full_text_id, folder_path=None):
             print(f"Failed to determine the bitonality for #{page_num}! Trying again...")
 
     print(f"All images downloaded from Hathi scan {full_text_id}, converted to individual djvu files, and subsequently deleted successfully! Now to make one big djvu file")
-    oldpwd = os.getcwd()
-    os.chdir(f"{oldpwd}/{folder_path}/")
-    os.system(f"djvm -c {full_text_id}.djvu{all_djvu_pages}")
-    os.chdir(oldpwd)
-
+    while True:
+        convert = input("ready to convert? (say no to quit)")
+        if convert == "yes":
+            oldpwd = os.getcwd()
+            os.chdir(f"{oldpwd}/{folder_path}/")
+            os.system(f"djvm -c {full_text_id}.djvu{all_djvu_pages}")
+            os.chdir(oldpwd)
+            break
+        else if convert == "no":
+            break
     return None
     # return img_tags
 # --------------------------------------------------------------------------------------------------------------------
