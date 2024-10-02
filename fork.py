@@ -94,7 +94,7 @@ def get_hathitrust_images(full_text_id, folder_path=None):
         convert = input("ready to convert? (say no to quit)")
         if convert == "yes":
             oldpwd = os.getcwd()
-            os.chdir(f"{oldpwd}/{folder_path}/")
+            os.chdir(f"{oldpwd}\\{folder_path}")
             os.system(f"djvm -c {full_text_id}.djvu{all_djvu_pages}")
             os.chdir(oldpwd)
             break
