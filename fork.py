@@ -98,7 +98,7 @@ def get_hathitrust_images(full_text_id, folder_path=None):
             os.system(f"djvm -c {full_text_id}.djvu{all_djvu_pages}")
             os.chdir(oldpwd)
             break
-        else if convert == "no":
+        elif convert == "no":
             break
     return None
     # return img_tags
