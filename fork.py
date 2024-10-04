@@ -30,7 +30,15 @@ def get_number_of_pages(full_text_id):
         return number_of_pages
     print(f"Response code not 200. Was: {response.status_code}")
     return None
-
+# gets last part of djvm command with space attached
+def get_djvm(pages):
+    djvm_command = ""
+    page_num = 1
+    for i in pages:
+        print(f" {page_num}.djvu") # remove later
+        djvm_command.append(f" {page_num}.djvu")
+        page_num += 1
+    return djvu_command
 def get_hathitrust_images(full_text_id, folder_path=None):
     # page_source = get_full_text_page_source(url)
     if type(full_text_id) == list:
