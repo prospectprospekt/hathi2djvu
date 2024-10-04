@@ -87,7 +87,7 @@ def get_hathitrust_images(full_text_id, folder_path=None):
                     print(f"Color/greyscale detected! {page_num} is for c44")
                     print(f"{oldpwd}\\{folder_path}") # remove later
                     os.chdir(f"{oldpwd}\\{folder_path}")
-                    os.system(f"c44 -dpi 100 {page_num} {page_num}.djvu") 
+                    os.system(f"c44 -dpi 150 {page_num} {page_num}.djvu") # to make it fit with https://commons.wikimedia.org/wiki/File:Generic_placeholder_page.djvu?page=1
                     # os.remove(f"{page_num}") # delete pnm file to not let it take up storage
                     print(oldpwd) # remove later
                     os.chdir(oldpwd)
@@ -95,7 +95,7 @@ def get_hathitrust_images(full_text_id, folder_path=None):
                     print(f"Bitonality detected! {page_num} is for cjb2")
                     print(f"{oldpwd}\\{folder_path}") # remove later
                     os.chdir(f"{oldpwd}\\{folder_path}")
-                    os.system(f"cjb2 -dpi 200 {page_num} {page_num}.djvu") 
+                    os.system(f"cjb2 -dpi 300 {page_num} {page_num}.djvu") # to make it fit with https://commons.wikimedia.org/wiki/File:Generic_placeholder_page.djvu?page=1
                     # os.remove(f"{page_num}") # delete pnm file to not let it take up storage
                     print(oldpwd) # remove later
                     os.chdir(oldpwd)
