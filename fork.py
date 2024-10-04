@@ -39,6 +39,14 @@ def get_djvm(pages):
         djvm_command.append(f" {page_num}.djvu")
         page_num += 1
     return djvu_command
+def djvm(full_text_id):
+    pages = get_number_of_pages(full_text_id)
+    last = get_djvm(pages)
+    oldpwd = os.getcwd()
+    os.chdir(f"{oldpwd}\\{folder_path}")
+    os.system(f"djvm -c {full_text_id}.djvu{last}")
+    os.chdir(oldpwd)
+    return None
 def get_hathitrust_images(full_text_id, folder_path=None):
     # page_source = get_full_text_page_source(url)
     if type(full_text_id) == list:
@@ -115,8 +123,13 @@ while True:
     full_text_id = input("Enter HathiTrust ID or break (say break): ")
     if full_text_id == "break":
         break
-    directory = f"Images_from_{full_text_id}"
-    print("getting images...")
-    get_hathitrust_images(full_text_id)
+    option = input("convert existing files to djvu (convert) or download new files? (download)")
+    if option == convert:
+        djvm(full_text_id)
+    elif option == download:
+        directory = f"Images_from_{full_text_id}"
+        print("getting images...")
+        get_hathitrust_images(full_text_id)
+    
     
     
