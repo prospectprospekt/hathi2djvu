@@ -34,7 +34,7 @@ def get_number_of_pages(full_text_id):
 def get_djvm(pages):
     djvm_command = ""
     page_num = 1
-    for i in pages:
+    for i in range(pages):
         print(f" {page_num}.djvu") # remove later
         djvm_command.append(f" {page_num}.djvu")
         page_num += 1
