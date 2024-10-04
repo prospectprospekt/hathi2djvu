@@ -36,7 +36,7 @@ def get_djvm(pages):
     page_num = 1
     for i in range(pages):
         print(f" {page_num}.djvu") # remove later
-        djvm_command.append(f" {page_num}.djvu")
+        djvm_command += f" {page_num}.djvu"
         page_num += 1
     return djvu_command
 def djvm(full_text_id):
