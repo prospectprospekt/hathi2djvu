@@ -43,7 +43,7 @@ def djvm(full_text_id):
     pages = get_number_of_pages(full_text_id)
     last = get_djvm(pages)
     oldpwd = os.getcwd()
-    os.chdir(f"{oldpwd}\\{folder_path}")
+    os.chdir(f"{oldpwd}\\Images from {full_text_id}")
     os.system(f"djvm -c {full_text_id}.djvu{last}")
     os.chdir(oldpwd)
     return None
