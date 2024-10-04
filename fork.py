@@ -123,10 +123,10 @@ while True:
     full_text_id = input("Enter HathiTrust ID or break (say break): ")
     if full_text_id == "break":
         break
-    option = input("convert existing files to djvu (convert) or download new files? (download)")
-    if option == convert:
+    option = input("convert existing files to djvu (say convert) or download new files? (say download)")
+    if option == "convert":
         djvm(full_text_id)
-    elif option == download:
+    elif option == "download":
         directory = f"Images_from_{full_text_id}"
         print("getting images...")
         get_hathitrust_images(full_text_id)
