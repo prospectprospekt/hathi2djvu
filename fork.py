@@ -89,9 +89,9 @@ def get_hathitrust_images(full_text_id, folder_path=None):
                     os.chdir(f"{oldpwd}\\{folder_path}")
                     time.sleep(1)
                     os.system(f"c44 -dpi 150 {page_num} {page_num}.djvu") # to make it fit with https://commons.wikimedia.org/wiki/File:Generic_placeholder_page.djvu?page=1
-                    time.sleep(1)
-                    print(f"Deleting original file of page {page_num}")
-                    os.remove(f"{page_num}") # delete pnm file to not let it take up storage
+                    # time.sleep(1)
+                    # print(f"Deleting original file of page {page_num}")
+                    # os.remove(f"{page_num}") # delete pnm file to not let it take up storage
                     print(oldpwd) # remove later
                     os.chdir(oldpwd)
                 else:
@@ -100,9 +100,9 @@ def get_hathitrust_images(full_text_id, folder_path=None):
                     os.chdir(f"{oldpwd}\\{folder_path}")
                     time.sleep(1)
                     os.system(f"cjb2 -dpi 300 {page_num} {page_num}.djvu") # to make it fit with https://commons.wikimedia.org/wiki/File:Generic_placeholder_page.djvu?page=1
-                    time.sleep(1)
-                    print(f"Deleting original file of page {page_num}")
-                    os.remove(f"{page_num}") # delete pnm file to not let it take up storage
+                    # time.sleep(1)
+                    # print(f"Deleting original file of page {page_num}")
+                    # os.remove(f"{page_num}") # delete pnm file to not let it take up storage
                     print(oldpwd) # remove later
                     os.chdir(oldpwd)
                 break 
