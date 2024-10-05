@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 from contextlib import chdir
 import os
-# import re
+import time
 
 def get_number_of_pages(full_text_id):
     print("Retrieving number of pages in scan...")
@@ -84,19 +84,25 @@ def get_hathitrust_images(full_text_id, folder_path=None):
                 content_type = response.headers['content-type']
                 oldpwd = os.getcwd()
                 if content_type == "image/jpeg":
-                    print(f"Color/greyscale detected! {page_num} is for c44")
+                    print(f"Color/greyscale detected! {page_num} will be converted using c44!")
                     print(f"{oldpwd}\\{folder_path}") # remove later
                     os.chdir(f"{oldpwd}\\{folder_path}")
+                    time.sleep(1)
                     os.system(f"c44 -dpi 150 {page_num} {page_num}.djvu") # to make it fit with https://commons.wikimedia.org/wiki/File:Generic_placeholder_page.djvu?page=1
-                    # os.remove(f"{page_num}") # delete pnm file to not let it take up storage
+                    time.sleep(1)
+                    print(f"Deleting original file of page {page_num}")
+                    os.remove(f"{page_num}") # delete pnm file to not let it take up storage
                     print(oldpwd) # remove later
                     os.chdir(oldpwd)
                 else:
-                    print(f"Bitonality detected! {page_num} is for cjb2")
+                    print(f"Bitonality detected! {page_num} will be converted using cjb2!")
                     print(f"{oldpwd}\\{folder_path}") # remove later
                     os.chdir(f"{oldpwd}\\{folder_path}")
+                    time.sleep(1)
                     os.system(f"cjb2 -dpi 300 {page_num} {page_num}.djvu") # to make it fit with https://commons.wikimedia.org/wiki/File:Generic_placeholder_page.djvu?page=1
-                    # os.remove(f"{page_num}") # delete pnm file to not let it take up storage
+                    time.sleep(1)
+                    print(f"Deleting original file of page {page_num}")
+                    os.remove(f"{page_num}") # delete pnm file to not let it take up storage
                     print(oldpwd) # remove later
                     os.chdir(oldpwd)
                 break 
