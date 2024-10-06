@@ -48,7 +48,7 @@ def merge_images(full_text_id, page_num, upright_image_name, upside_down_image_n
   larger_half = int(math.ceil(half))
   smaller_half = int(math.floor(half))
   upper_image_crop_command = ["magick", upright_image_name, "-gravity", "South", "-chop", f"0x{larger_half}", f"Cropped {upright_image_name}"]
-  upside_down_image_crop_command = ["magick", upside_down_image_name, "-gravity", "South", "-chop", f"0x{smaller_half}", f"Cropped {upright_image_name}"]
+  upside_down_image_crop_command = ["magick", upside_down_image_name, "-gravity", "South", "-chop", f"0x{smaller_half}", f"Cropped {upside_down_image_name}"]
   subprocess.run(upper_image_crop_command)
   subprocess.run(upside_down_image_crop_command)
   
