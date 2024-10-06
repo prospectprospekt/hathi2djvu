@@ -29,7 +29,7 @@ def get_single_hathitrust_image(full_text_id, page_num, orientation):
         image_path = f"{page_num}_upside_down.png"
         with open(image_path, 'wb') as file:
           file.write(response.content)
-        print(f"Upright image for #{page_num} saved successfully!")
+        print(f"Upside down image for #{page_num} saved successfully!")
         break
       print("Download failed. Trying again.")
 def find_height(full_text_id, page_num):
