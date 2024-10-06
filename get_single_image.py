@@ -64,11 +64,13 @@ def merge_images(full_text_id, page_num, upright_image_name, upside_down_image_n
   subprocess.run(upside_down_image_crop_command)
   subprocess.run(rotate_upside_down_command)
   subprocess.run(join)
+def get_and_merge_page(full_text_id, page_num):
+  get_single_hathitrust_image(full_text_id, page_num, "upright")
+  get_single_hathitrust_image(full_text_id, page_num, "upside down")
+  upright_name = f"{page_num}_upright.png"
+  upside_down_name = f"{page_num}_upside_down.png"
+  merge_images(full_text_id, page_num, upright_name, upside_down_name)
   
   
-  
-get_single_hathitrust_image("osu.32435055416200", "1", "upright")
-get_single_hathitrust_image("osu.32435055416200", "1", "upside down")
-print(find_height("osu.32435055416200", "1"))
-merge_images("osu.32435055416200", "1", "1_upright.png", "1_upside_down.png")
+get_and_merge_page(osu.32435055416200, 7)
 
