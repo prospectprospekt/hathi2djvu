@@ -57,7 +57,7 @@ def merge_images(full_text_id, page_num, upright_image_name, upside_down_image_n
   print(upper_image_crop_command)
   upside_down_image_crop_command = ["magick", upside_down_image_name, "-gravity", "South", "-chop", f"0x{smaller_half}", cropped_upside_down]
   rotate_upside_down_command = ["magick", cropped_upside_down, "-rotate", "-180", cropped_upside_down_rotated]
-  join = ["magick", cropped_upper, cropped_upside_down_rotated, "-append", final_image]
+  join = ["magick", cropped_upright, cropped_upside_down_rotated, "-append", final_image]
   print(upside_down_image_crop_command)
   print(rotate_upside_down_command)
   subprocess.run(upper_image_crop_command)
