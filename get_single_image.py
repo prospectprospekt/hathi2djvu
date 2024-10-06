@@ -4,6 +4,9 @@ from contextlib import chdir
 import subprocess
 import os
 import math
+# reqiires: cd to directory where images are going to be downloaded, and all inputs are strings
+# modifies: print
+# effects: downloads files, and possibly deletes them. 
 def get_single_hathitrust_image(full_text_id, page_num, orientation):
   if orientation == "upright":  
     url_upright = f"https://babel.hathitrust.org/cgi/imgsrv/image?id={full_text_id};seq={page_num};size=full;format=image/png"
