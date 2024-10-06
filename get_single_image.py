@@ -49,13 +49,13 @@ def merge_images(full_text_id, page_num, upright_image_name, upside_down_image_n
   print(larger_half)
   smaller_half = int(math.floor(half))
   print(smaller_half)
-  cropped_upper = f"Cropped {upright_image_name}"
+  cropped_upright = f"Cropped {upright_image_name}"
   cropped_upside_down = f"Cropped {upside_down_image_name}"
   cropped_upside_down_rotated = f"Rotated cropped {upside_down_image_name}"
   final_image = f"{page_num}.png"
-  upper_image_crop_command = ["magick", upright_image_name, "-gravity", "South", "-chop", f"0x{larger_half}", cropped_upper]
+  upper_image_crop_command = ["magick", upright_image_name, "-gravity", "South", "-chop", f"0x{larger_half}", cropped_upright]
   print(upper_image_crop_command)
-  upside_down_image_crop_command = ["magick", upside_down_image_name, "-gravity", "South", "-chop", f"0x{smaller_half}", cropped_lower]
+  upside_down_image_crop_command = ["magick", upside_down_image_name, "-gravity", "South", "-chop", f"0x{smaller_half}", cropped_upside_down]
   rotate_upside_down_command = ["magick", cropped_upside_down, "-rotate", "-180", cropped_upside_down_rotated]
   join = ["magick", cropped_upper, cropped_upside_down_rotated, "-append", final_image]
   print(upside_down_image_crop_command)
