@@ -36,7 +36,9 @@ def find_height(full_text_id, page_num):
   while True:
     response = requests.get(url)
     if response.status_code == 200:
-      return response.headers['content-length']
+      # get last four characters of x-image-size, which is the height
+      size = response.headers['x-image-size']
+      return size[-4:]
       break
     print("didn't get height; trying again")
   
