@@ -72,5 +72,5 @@ def get_and_merge_page(full_text_id, page_num):
   merge_images(full_text_id, page_num, upright_name, upside_down_name)
   
   
-get_and_merge_page(osu.32435055416200, 7)
+get_and_merge_page("osu.32435055416200", 7)
 
