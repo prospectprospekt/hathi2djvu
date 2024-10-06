@@ -29,4 +29,4 @@ def get_single_hathitrust_image(full_text_id, page_num, orientation):
         print(f"Upright image for #{page_num} saved successfully!")
         break
       print("Download failed. Trying again.")
-get_single_hathitrust_image("osu.32435055416200", "1", "upward")
+get_single_hathitrust_image("osu.32435055416200", "1", "upright")
