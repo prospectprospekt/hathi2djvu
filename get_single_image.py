@@ -3,6 +3,7 @@ import requests
 from contextlib import chdir
 import os
 import math
+import subprocess
 # reqiires: cd to directory where images are going to be downloaded, and all inputs are strings
 # modifies: print
 # effects: downloads files, and possibly deletes them. 
@@ -38,9 +39,20 @@ def find_height(full_text_id, page_num):
     if response.status_code == 200:
       # get last four characters of x-image-size, which is the height
       size = response.headers['x-image-size']
-      return size[-4:]
+      return int(size[-4:])
       break
     print("didn't get height; trying again")
+# uses imagemagick; relies on find_height
+def merge_images(full_text_id, page_num, upright_image_name, upside_down_image_name):
+  half = find_height(full_text_id, page_num) / 2.0
+  larger_half = int(math.ceil(half))
+  smaller_half = int(math.floor(half))
+  upper_image_crop_command = ["magick", upright_image_name, "-gravity", "South", "-chop", f"0x{larger_half}", f"Cropped {upright_image_name}"]
+  upside_down_image_crop_command = ["magick", upside_down_image_name, "-gravity", "South", "-chop", f"0x{smaller_half}", f"Cropped {upright_image_name}"]
+  subprocess.run(upper_image_crop_command)
+  subprocess.run(upside_down_image_crop_command)
+  
+  
   
 get_single_hathitrust_image("osu.32435055416200", "1", "upright")
 get_single_hathitrust_image("osu.32435055416200", "1", "upside down")
