@@ -30,3 +30,5 @@ def get_single_hathitrust_image(full_text_id, page_num, orientation):
         break
       print("Download failed. Trying again.")
 get_single_hathitrust_image("osu.32435055416200", "1", "upright")
+get_single_hathitrust_image("osu.32435055416200", "1", "upside down")
+
