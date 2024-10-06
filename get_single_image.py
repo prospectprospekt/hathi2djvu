@@ -57,3 +57,5 @@ def merge_images(full_text_id, page_num, upright_image_name, upside_down_image_n
 get_single_hathitrust_image("osu.32435055416200", "1", "upright")
 get_single_hathitrust_image("osu.32435055416200", "1", "upside down")
 print(find_height("osu.32435055416200", "1"))
+merge_images("osu.32435055416200", "1", "1_upright.png", "1_upside_down.png")
+
