@@ -35,7 +35,7 @@ def find_height(full_text_id, page_num):
   url = f"https://babel.hathitrust.org/cgi/imgsrv/image?id={full_text_id};seq={page_num};size=full;format=image/png"
   while True:
     response = requests.get(url)
-    if response.status_code == 200;
+    if response.status_code == 200:
       return response.headers['content-length']
       break
     print("didn't get height; trying again")
